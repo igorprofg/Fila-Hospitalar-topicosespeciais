@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class UnidadeDeSaude extends Model
 {
-    protected $table = 'unidade_de_saude';
+    protected $table = 'unidades_de_saude';
+
+    protected $primaryKey = 'id_unidade';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         'nome',
-        'cnpj',
-        'telefone',
+        'endereco',
+        // outros campos se houver
     ];
 
     public function filas()
@@ -19,4 +23,3 @@ class UnidadeDeSaude extends Model
         return $this->hasMany(Fila::class, 'id_unidade');
     }
 }
-

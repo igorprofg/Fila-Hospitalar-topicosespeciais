@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -6,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Medico extends Model
 {
     protected $table = 'medicos';
+
+    protected $primaryKey = 'id_medico';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         'nome',
@@ -18,4 +23,3 @@ class Medico extends Model
         return $this->hasMany(Fila::class, 'id_medico');
     }
 }
-

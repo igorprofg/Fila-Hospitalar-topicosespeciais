@@ -8,13 +8,16 @@ class Fila extends Model
 {
     protected $table = 'filas';
 
+    protected $primaryKey = 'id_fila';
+    public $incrementing = true;
+    protected $keyType = 'int';
+
     protected $fillable = [
-        'status',
-        'data',
-        'prioridade',
         'id_paciente',
         'id_unidade',
         'id_medico',
+        'status',
+        'prioridade',
     ];
 
     public function paciente()
@@ -32,4 +35,3 @@ class Fila extends Model
         return $this->belongsTo(UnidadeDeSaude::class, 'id_unidade');
     }
 }
-

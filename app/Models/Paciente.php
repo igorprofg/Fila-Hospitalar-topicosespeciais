@@ -8,6 +8,10 @@ class Paciente extends Model
 {
     protected $table = 'pacientes';
 
+    protected $primaryKey = 'id_paciente';
+    public $incrementing = true;
+    protected $keyType = 'int';
+
     protected $fillable = [
         'nome',
         'cpf',
@@ -19,4 +23,3 @@ class Paciente extends Model
         return $this->hasMany(Fila::class, 'id_paciente');
     }
 }
-

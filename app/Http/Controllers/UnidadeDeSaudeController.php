@@ -17,7 +17,7 @@ class UnidadeDeSaudeController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'cnpj' => 'required|string|max:18|unique:unidade_de_saudes',
+            'cnpj' => 'required|string|max:18|unique:unidades_de_saude',
             'telefone' => 'nullable|string|max:20',
         ]);
 
