@@ -15,11 +15,5 @@ class Paciente extends Model
     protected $fillable = [
         'nome',
         'cpf',
-        'prontuario',
     ];
-
-    public function filas()
-    {
-        return $this->hasMany(Fila::class, 'id_paciente');
-    }
 }

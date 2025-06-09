@@ -14,8 +14,8 @@ class UnidadeDeSaude extends Model
 
     protected $fillable = [
         'nome',
-        'endereco',
-        // outros campos se houver
+        'bairro',
+        'cidade',
     ];
 
     public function filas()

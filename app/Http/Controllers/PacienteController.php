@@ -44,7 +44,7 @@ class PacienteController extends Controller
     {
         $request->validate([
             'nome' => 'required',
-            'cpf' => 'required|unique:pacientes,cpf,' . $paciente->id,
+            'cpf' => 'required|unique:pacientes,cpf,' . $paciente->id_paciente . ',id_paciente',
         ]);
 
         $paciente->update($request->all());
@@ -59,4 +59,3 @@ class PacienteController extends Controller
         return redirect()->route('pacientes.index')->with('success', 'Paciente excluído com sucesso!');
     }
 }
-

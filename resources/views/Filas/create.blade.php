@@ -43,7 +43,7 @@
                 <input type="number" name="prioridade" class="w-full p-2 border rounded" />
             </div>
 
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Salvar</button>
+            <button type="submit" class="bg-blue-600 !text-black px-4 py-2 rounded">Salvar</button>
         </form>
     </div>
 </x-layouts.app>

@@ -45,7 +45,7 @@ class MedicoController extends Controller
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
             'especialidade' => 'required|string|max:255',
-            'crm' => 'required|string|unique:medicos,crm,' . $medico->id,
+            'crm' => 'required|string|unique:medicos,crm,' . $medico->id_medico . ',id_medico',
         ]);
 
         $medico->update($validated);
