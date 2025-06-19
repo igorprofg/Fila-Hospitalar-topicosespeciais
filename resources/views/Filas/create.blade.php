@@ -1,49 +1,67 @@
-<x-layouts.app title="Criar Fila">
-    <div class="max-w-3xl mx-auto mt-6 bg-white p-6 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4">Nova Fila</h1>
+<x-layouts.app.sidebar :title="'Nova Fila'">
+    <div class="max-w-2xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-lg">
+        <h1 class="text-2xl font-bold text-indigo-700 mb-6">Cadastrar Nova Fila</h1>
 
-        <form method="POST" action="{{ route('filas.store') }}">
+        <form method="POST" action="{{ route('filas.store') }}" class="space-y-6">
             @csrf
 
-            <div class="mb-4">
-                <label class="block mb-1">Paciente</label>
-                <select name="id_paciente" class="w-full p-2 border rounded">
+            <!-- Paciente -->
+            <div>
+                <label for="id_paciente" class="block text-sm font-medium text-gray-700 mb-1">Paciente</label>
+                <select name="id_paciente" id="id_paciente"
+                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                     @foreach($pacientes as $paciente)
-                        <option value="{{ $paciente->id }}">{{ $paciente->nome }}</option>
+                        <option value="{{ $paciente->id_paciente }}">{{ $paciente->nome }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="mb-4">
-                <label class="block mb-1">Unidade</label>
-                <select name="id_unidade" class="w-full p-2 border rounded">
+            <!-- Unidade -->
+            <div>
+                <label for="id_unidade" class="block text-sm font-medium text-gray-700 mb-1">Unidade</label>
+                <select name="id_unidade" id="id_unidade"
+                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                     @foreach($unidades as $unidade)
-                        <option value="{{ $unidade->id }}">{{ $unidade->nome }}</option>
+                        <option value="{{ $unidade->id_unidade }}">{{ $unidade->nome }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="mb-4">
-                <label class="block mb-1">Médico</label>
-                <select name="id_medico" class="w-full p-2 border rounded">
+            <!-- Médico -->
+            <div>
+                <label for="id_medico" class="block text-sm font-medium text-gray-700 mb-1">Médico</label>
+                <select name="id_medico" id="id_medico"
+                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                     <option value="">-- Nenhum --</option>
                     @foreach($medicos as $medico)
-                        <option value="{{ $medico->id }}">{{ $medico->nome }}</option>
+                        <option value="{{ $medico->id_medico }}">{{ $medico->nome }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="mb-4">
-                <label class="block mb-1">Status</label>
-                <input type="text" name="status" class="w-full p-2 border rounded" />
+            <!-- Status -->
+            <div>
+                <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <input type="text" name="status" id="status"
+                       class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       required />
             </div>
 
-            <div class="mb-4">
-                <label class="block mb-1">Prioridade</label>
-                <input type="number" name="prioridade" class="w-full p-2 border rounded" />
+            <!-- Prioridade -->
+            <div>
+                <label for="prioridade" class="block text-sm font-medium text-gray-700 mb-1">Prioridade</label>
+                <input type="text" name="prioridade" id="prioridade"
+                       class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       required />
             </div>
 
-            <button type="submit" class="bg-blue-600 !text-black px-4 py-2 rounded">Salvar</button>
+            <!-- Botão -->
+            <div class="flex justify-end">
+                <button type="submit"
+                         class="bg-indigo-600 hover:bg-indigo-700 text-black px-4 py-2 rounded-lg shadow transition">
+                    Salvar
+                </button>
+            </div>
         </form>
     </div>
-</x-layouts.app>
+</x-layouts.app.sidebar>

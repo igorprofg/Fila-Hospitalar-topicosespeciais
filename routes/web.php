@@ -20,7 +20,6 @@ Route::resource('unidades', UnidadeDeSaudeController::class);
 
 // Dashboard
 Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 // Rotas protegidas para configurações

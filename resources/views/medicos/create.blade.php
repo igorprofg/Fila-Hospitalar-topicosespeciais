@@ -1,28 +1,41 @@
-<x-layouts.app>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800 leading-tight">Cadastrar Médico</h2>
-    </x-slot>
+<x-layouts.app.sidebar :title="'Cadastrar Médico'">
+    <div class="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-indigo-700 mb-6">Cadastrar Novo Médico</h2>
 
-    <div class="p-4">
-        <form action="{{ route('medicos.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route('medicos.store') }}" method="POST" class="space-y-6">
             @csrf
 
+            <!-- Nome -->
             <div>
-                <label for="nome" class="block">Nome:</label>
-                <input type="text" name="nome" id="nome" class="border rounded w-full" required>
+                <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                <input type="text" name="nome" id="nome"
+                       class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       required>
             </div>
 
+            <!-- CRM -->
             <div>
-                <label for="crm" class="block">CRM:</label>
-                <input type="text" name="crm" id="crm" class="border rounded w-full" required>
+                <label for="crm" class="block text-sm font-medium text-gray-700 mb-1">CRM</label>
+                <input type="text" name="crm" id="crm"
+                       class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       required>
             </div>
 
+            <!-- Especialidade -->
             <div>
-                <label for="especialidade" class="block">Especialidade:</label>
-                <input type="text" name="especialidade" id="especialidade" class="border rounded w-full" required>
+                <label for="especialidade" class="block text-sm font-medium text-gray-700 mb-1">Especialidade</label>
+                <input type="text" name="especialidade" id="especialidade"
+                       class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                       required>
             </div>
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Salvar</button>
+            <!-- Botão -->
+            <div class="flex justify-end">
+                <button type="submit"
+                       class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg shadow transition">
+                    Salvar
+                </button>
+            </div>
         </form>
     </div>
-</x-layouts.app>
+</x-layouts.app.sidebar>

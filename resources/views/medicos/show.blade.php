@@ -1,13 +1,27 @@
-<x-layouts.app>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold text-gray-800 leading-tight">Detalhes do Médico</h2>
-    </x-slot>
+<x-layouts.app.sidebar :title="'Detalhes do Médico'">
+    <div class="max-w-2xl mx-auto mt-10 bg-white shadow-lg rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-indigo-700 mb-6">Informações do Médico</h2>
 
-    <div class="p-4">
-        <p><strong>Nome:</strong> {{ $medico->nome }}</p>
-        <p><strong>CRM:</strong> {{ $medico->crm }}</p>
-        <p><strong>Especialidade:</strong> {{ $medico->especialidade }}</p>
+        <div class="space-y-4 text-gray-800">
+            <p>
+                <span class="font-semibold text-gray-600">Nome:</span>
+                {{ $medico->nome }}
+            </p>
+            <p>
+                <span class="font-semibold text-gray-600">CRM:</span>
+                {{ $medico->crm }}
+            </p>
+            <p>
+                <span class="font-semibold text-gray-600">Especialidade:</span>
+                {{ $medico->especialidade }}
+            </p>
+        </div>
 
-        <a href="{{ route('medicos.index') }}" class="mt-4 inline-block text-blue-500">Voltar à lista</a>
+        <div class="mt-8">
+            <a href="{{ route('medicos.index') }}"
+               class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg shadow transition">
+                ← Voltar à lista
+            </a>
+        </div>
     </div>
-</x-layouts.app>
+</x-layouts.app.sidebar>

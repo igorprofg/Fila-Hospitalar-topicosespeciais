@@ -22,21 +22,21 @@ class FilaController extends Controller
         $medicos = Medico::all();
         $unidades = UnidadeDeSaude::all();
 
-       return view('filas.create', compact('pacientes', 'unidades', 'medicos'));
+        return view('filas.create', compact('pacientes', 'unidades', 'medicos'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'paciente_id' => 'required|exists:pacientes,id_paciente',
-            'unidade_id' => 'required|exists:unidade_de_saude,id_unidade',
-            'medico_id' => 'nullable|exists:medicos,id_medico',
+            'id_paciente' => 'required|exists:pacientes,id_paciente',
+            'id_unidade' => 'required|exists:unidades_de_saude,id_unidade',
+            'id_medico' => 'nullable|exists:medicos,id_medico',
             'status' => 'required|string',
             'prioridade' => 'required|string',
         ]);
 
         Fila::create($request->only([
-            'paciente_id', 'unidade_id', 'medico_id', 'status', 'prioridade'
+            'id_paciente', 'id_unidade', 'id_medico', 'status', 'prioridade'
         ]));
 
         return redirect()->route('filas.index')->with('success', 'Fila criada com sucesso.');
@@ -61,16 +61,16 @@ class FilaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'paciente_id' => 'required|exists:pacientes,id_paciente',
-            'unidade_id' => 'required|exists:unidade_de_saude,id_unidade',
-            'medico_id' => 'nullable|exists:medicos,id_medico',
+            'id_paciente' => 'required|exists:pacientes,id_paciente',
+            'id_unidade' => 'required|exists:unidades_de_saude,id_unidade',
+            'id_medico' => 'nullable|exists:medicos,id_medico',
             'status' => 'required|string',
             'prioridade' => 'required|string',
         ]);
 
         $fila = Fila::findOrFail($id);
         $fila->update($request->only([
-            'paciente_id', 'unidade_id', 'medico_id', 'status', 'prioridade'
+            'id_paciente', 'id_unidade', 'id_medico', 'status', 'prioridade'
         ]));
 
         return redirect()->route('filas.index')->with('success', 'Fila atualizada com sucesso.');
